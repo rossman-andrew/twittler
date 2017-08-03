@@ -2,18 +2,47 @@ body {
 	background-color: #66d9ff;
 }
 
+.newTweetButton {
+  margin: auto;
+  width: 600px;
+  height: 35px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+  color: #00ace6;
+  background-color: #e6e6e6;
+}
+
+.newTweetButton:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+
 .tweetBackground {
-	margin: auto;
+	  margin: auto;
     width: 600px;
-    border: 3px solid white;
     padding: 10px;
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .tweet {
-	border-bottom: 1px solid grey;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin-left: 50px;
 	margin-right: 50px;
+}
+
+.tweet:hover {
+	background-color: #e6e6e6;
+	cursor: pointer;
+}
+
+.tweetTime {
+  font-size: 12px;
+  text-align: left;
+  margin-left: 50px;
+  margin-right: 50px;
+  color: grey;
+  border-bottom: 1px solid grey;
 }

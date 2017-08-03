@@ -21,6 +21,7 @@
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
+        $newTweetButton = $('<div class="newTweetButton"></div>');
         $background = $('<div class="tweetBackground"></div>');
         $header = $('<h1>Twittler</h1>');
         $header.appendTo($body);
@@ -28,9 +29,14 @@
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div class="tweet"></div>');
+          var $tweetTime = $('<div class="tweetTime"></div>');
           $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $newTweetButton.text("View # new Tweets");
+          $tweetTime.text(tweet.created_at);
           $tweet.appendTo($background);
+          $tweetTime.appendTo($background);
           //$tweet.appendTo($body);
+          $newTweetButton.appendTo($body);
           $background.appendTo($body);
           index -= 1;
         }
