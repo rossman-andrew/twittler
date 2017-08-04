@@ -25,21 +25,33 @@
         $background = $('<div class="tweetBackground"></div>');
         $header = $('<h1>Twittler</h1>');
         $header.appendTo($body);
-        var index = streams.home.length - 1;
-        while(index >= 0){
+        $newTweetButton.text("View # new Tweets");
+        $newTweetButton.appendTo($body);
+        $background.appendTo($body);
+        //var index = streams.home.length - 1;
+        var start = 0;
+        var insertTweet = function(index) {
           var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
+          var $tweet = $('<div class="tweet ' + tweet.user + '"></div>');
           var $tweetTime = $('<div class="tweetTime"></div>');
           $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $newTweetButton.text("View # new Tweets");
           $tweetTime.text(tweet.created_at);
-          $tweet.appendTo($background);
-          $tweetTime.appendTo($background);
-          //$tweet.appendTo($body);
-          $newTweetButton.appendTo($body);
-          $background.appendTo($body);
-          index -= 1;
+          $tweet.prependTo($background);
+          $tweetTime.appendTo($tweet);
         }
+
+        var newTweetBlock = function() {
+          var index = start;
+          var newStart = streams.home.length;
+          while(index < newStart){
+            insertTweet(index);
+            index += 1;
+          }
+          start = newStart;
+        }
+        newTweetBlock();
+        (setInterval(function(){ newTweetBlock(); }, 5000))();
+        
       });
 
     </script>
