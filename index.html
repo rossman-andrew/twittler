@@ -21,12 +21,9 @@
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
-        $newTweetButton = $('<div class="newTweetButton"></div>');
         $background = $('<div class="tweetBackground"></div>');
         $header = $('<h1>Twittler</h1>');
         $header.appendTo($body);
-        $newTweetButton.text("View # new Tweets");
-        $newTweetButton.appendTo($body);
         $background.appendTo($body);
         //var index = streams.home.length - 1;
         var start = 0;
@@ -49,9 +46,43 @@
           }
           start = newStart;
         }
+        var userTimeline = function(user) {
+          if(user === 'mracus') {
+            $('.shawndrost').remove();
+            $('.sharksforcheap').remove();
+            $('.douglascalhoun').remove(); 
+          }else if (user === 'shawndrost') {
+            $('.mracus').remove();
+            $('.sharksforcheap').remove();
+            $('.douglascalhoun').remove();
+          }else if (user === 'sharksforcheap') {
+            $('.mracus').remove();
+            $('.shawndrost').remove();
+            $('.douglascalhoun').remove();
+          }else if (user === 'douglascalhoun') {
+            $('.mracus').remove();
+            $('.sharksforcheap').remove();
+            $('.shawndrost').remove();
+          }else{
+            return;
+          }
+          clearInterval(updateTweets); 
+        }
+
         newTweetBlock();
-        (setInterval(function(){ newTweetBlock(); }, 5000))();
-        
+        var updateTweets = setInterval(function(){ newTweetBlock(); }, 5000);
+        $('.mracus').click(function() {
+            userTimeline('mracus');
+        });
+        $('.shawndrost').click(function() {
+            userTimeline('shawndrost');
+        });
+        $('.sharksforcheap').click(function() {
+            userTimeline('sharksforcheap');
+        });
+        $('.douglascalhoun').click(function() {
+            userTimeline('douglascalhoun');
+        });
       });
 
     </script>
