@@ -2,6 +2,11 @@ body {
 	background-color: #66d9ff;
 }
 
+h1 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+  text-align: center;
+}
 .newTweetButton {
   margin: auto;
   width: 600px;
@@ -24,6 +29,7 @@ body {
     width: 600px;
     padding: 10px;
     background-color: #ffffff;
+    box-shadow: 10px 10px 3px #888888;
 }
 
 .tweet {
